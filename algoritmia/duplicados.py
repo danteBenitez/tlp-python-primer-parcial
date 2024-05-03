@@ -2,6 +2,12 @@ def eliminar_duplicados(lista: list) -> list:
     """
         Retorna una nueva lista con los elementos de `lista`, eliminando sus duplicados
         y manteniendo el orden original.
+
+        :param lista La lista cuyos duplicados obviar
+        :type list
+
+        :returns Una nueva lista sin duplicados
+        :rtype list
     """
     # Creamos una lista nueva que retornaremos 
     sin_duplicados = []
