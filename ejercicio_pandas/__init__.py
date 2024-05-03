@@ -3,7 +3,7 @@ from ejercicio_pandas.utils import average_of
 from ejercicio_pandas.format import separate
 from ejercicio_pandas.grades_analysis import top_students_for, calculate_passed_percentage, get_student_avg_grade
 
-CALIFICACIONES = [
+GRADES = [
     {"nombre": "Juan", "matematicas": 85, "ciencias": 90,
      "historia": 75},
     {"nombre": "María", "matematicas": 70, "ciencias": 80,
@@ -39,8 +39,17 @@ def main():
     """
         Realiza un análisis estadístico de las calificaciones de los estudiantes.
     """
+    if not isinstance(GRADES, list):
+        raise ValueError("Las calificaciones deben estar dispuestas en una lista.")
+
+    for grade in GRADES:
+        if not isinstance(grade, dict):
+            raise ValueError("Las calificaciones deben ser diccionarios")
+        elif "nombre" not in grade:
+            raise ValueError("Las calificaciones deben contar con el nombre del alumno")
+
     # Creamos un DataFrame para trabajar con los datos más cómodamente
-    grades_frame = pd.DataFrame(CALIFICACIONES)
+    grades_frame = pd.DataFrame(GRADES)
 
     # Calculamos y mostramos el promedio de cada asignatura
     average = average_of(grades_frame, columns=SUBJECTS)
