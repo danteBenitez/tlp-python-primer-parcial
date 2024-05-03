@@ -72,6 +72,9 @@ def main():
 
     student_average = get_student_avg_grade(grades_frame, subjects=SUBJECTS)
 
+    print("Promedios de cada estudiante: ")
+    print(student_average)
+
     return student_average
 
 
